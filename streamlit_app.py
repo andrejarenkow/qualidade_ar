@@ -38,26 +38,7 @@ st.markdown("""
 Este painel faz download automático das previsões do [Copernicus Atmosphere Monitoring Service](https://atmosphere.copernicus.eu/) para Material Particulado 2.5, gera mapas interpolados e categoriza municípios do RS de acordo com a [Resolução CONAMA nº 506, de 12 de janeiro de 2024](https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=827)
 """)
 
-st.markdown("""
-<table>
-  <tr>
-    <th>Qualidade</th>
-    <th style="background-color:green; color:white">BOA</th>
-    <th style="background-color:yellow">MODERADA</th>
-    <th style="background-color:orange">RUIM</th>
-    <th style="background-color:red; color:white">MUITO RUIM</th>
-    <th style="background-color:purple; color:white">PÉSSIMA</th>
-  </tr>
-  <tr>
-    <td>MP 2.5 (µg/m³) 24h</td>
-    <td style="background-color:green; color:white">0-15</td>
-    <td style="background-color:yellow">16-50</td>
-    <td style="background-color:orange">51-75</td>
-    <td style="background-color:red; color:white">76-125</td>
-    <td style="background-color:purple; color:white">&gt;125</td>
-  </tr>
-</table>
-""", unsafe_allow_html=True)
+
 
 # Dados do usuário
 #with st.expander("Configuração da API Copernicus (CDSAPI)"):
@@ -252,6 +233,26 @@ if os.path.exists(download_path):
     with col1:
         contagem_categorias = df_categorias['Categoria'].value_counts().reset_index()
         contagem_categorias.columns = ['Categoria', 'Quantidade']
+        st.markdown("""
+                <table>
+                  <tr>
+                    <th>Qualidade</th>
+                    <th style="background-color:green; color:white">BOA</th>
+                    <th style="background-color:yellow">MODERADA</th>
+                    <th style="background-color:orange">RUIM</th>
+                    <th style="background-color:red; color:white">MUITO RUIM</th>
+                    <th style="background-color:purple; color:white">PÉSSIMA</th>
+                  </tr>
+                  <tr>
+                    <td>MP 2.5 (µg/m³) 24h</td>
+                    <td style="background-color:green; color:white">0-15</td>
+                    <td style="background-color:yellow">16-50</td>
+                    <td style="background-color:orange">51-75</td>
+                    <td style="background-color:red; color:white">76-125</td>
+                    <td style="background-color:purple; color:white">&gt;125</td>
+                  </tr>
+                </table>
+                """, unsafe_allow_html=True)
         st.subheader("Municípios por categoria")
         cols = st.columns(len(contagem_categorias))
         for idx, row in contagem_categorias.iterrows():
