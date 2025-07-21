@@ -237,7 +237,7 @@ if os.path.exists(download_path):
                 <table>
                   <tr>
                     <th>Qualidade</th>
-                    <th style="background-color:#71E17B; color:white">BOA</th>
+                    <th style="background-color:#71E17B; color:black">BOA</th>
                     <th style="background-color:#FDD900">MODERADA</th>
                     <th style="background-color:#EE7D15">RUIM</th>
                     <th style="background-color:#C90101; color:white">MUITO RUIM</th>
