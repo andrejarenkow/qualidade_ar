@@ -23,10 +23,10 @@ Este painel faz download automático das previsões do CAMS para MP2.5, gera map
 """)
 
 # Dados do usuário
-with st.expander("Configuração da API Copernicus (CDSAPI)"):
-    st.markdown('Você precisa de uma chave Copernicus válida. [Veja como obter](https://cds.climate.copernicus.eu/api-how-to)')
-    cdsapi_key = 'be81bb34-c773-4711-8896-c15bccc82a33'#st.text_input("Chave da API Copernicus (formato: <uid>:<api_key>)", type='password')
-    baixar = st.button("Baixar e processar dado mais recente")
+#with st.expander("Configuração da API Copernicus (CDSAPI)"):
+st.markdown('Você precisa de uma chave Copernicus válida. [Veja como obter](https://cds.climate.copernicus.eu/api-how-to)')
+cdsapi_key = 'be81bb34-c773-4711-8896-c15bccc82a33'#st.text_input("Chave da API Copernicus (formato: <uid>:<api_key>)", type='password')
+    
 
 # Caminhos
 geojson_path = 'https://raw.githubusercontent.com/andrejarenkow/geodata/main/municipios_rs_CRS/RS_Municipios_2021.json'
@@ -186,6 +186,7 @@ geojson_data_crs = carregar_geojson_crs()
 # Data "hoje" padrão
 hoje = st.date_input("Selecione a data inicial") #datetime.date.today()
 hoje_str = hoje.strftime('%Y-%m-%d')
+baixar = st.button("Baixar e processar dado mais recente")
 
 if baixar and cdsapi_key:
     st.info("Baixando dados do CAMS. Isso pode levar alguns minutos...")
