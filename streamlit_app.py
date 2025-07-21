@@ -38,6 +38,12 @@ st.markdown("""
 Este painel faz download automático das previsões do [Copernicus Atmosphere Monitoring Service](https://atmosphere.copernicus.eu/) para Material Particulado 2.5, gera mapas interpolados e categoriza municípios do RS de acordo com a [Resolução CONAMA nº 506, de 12 de janeiro de 2024](https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=827)
 """)
 
+st.markdown("""
+| Qualidade     | BOA                              | MODERADA                          | RUIM                              | MUITO RUIM                         | PÉSSIMA                            |
+|---------------|----------------------------------|-----------------------------------|-----------------------------------|------------------------------------|------------------------------------|
+| MP 2.5 (µg/m³) 24h | <span style="color:green">0-15</span> | <span style="color:yellow">16-50</span> | <span style="color:orange">51-75</span> | <span style="color:red">76-125</span> | <span style="color:purple">>125</span> |
+""", unsafe_allow_html=True)
+
 # Dados do usuário
 #with st.expander("Configuração da API Copernicus (CDSAPI)"):
 #st.markdown('Você precisa de uma chave Copernicus válida. [Veja como obter](https://cds.climate.copernicus.eu/api-how-to)')
