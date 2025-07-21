@@ -183,34 +183,38 @@ def gerar_mapa(item, file_path_grib, gdf_municipios, geojson_data_crs):
 gdf_municipios = carregar_municipios()
 geojson_data_crs = carregar_geojson_crs()
 
-# Data "hoje" padrão
-hoje = st.date_input("Selecione a data inicial") #datetime.date.today()
-hoje_str = hoje.strftime('%Y-%m-%d')
-baixar = st.button("Baixar e processar dados")
+# Após carregar os dados e definir variáveis
+col1, col2 = st.columns([2, 1])
 
-if baixar and cdsapi_key:
-    st.info("Baixando dados do CAMS. Isso pode levar alguns minutos...")
-    ok = baixar_dado_cds(hoje_str, cdsapi_key)
-    if ok:
-        st.success("Arquivo baixado com sucesso!")
+with col2:
+    hoje = st.date_input("Selecione a data inicial")
+    hoje_str = hoje.strftime('%Y-%m-%d')
+    baixar = st.button("Baixar e processar dados")
+
+    if baixar and cdsapi_key:
+        st.info("Baixando dados do CAMS. Isso pode levar alguns minutos...")
+        ok = baixar_dado_cds(hoje_str, cdsapi_key)
+        if ok:
+            st.success("Arquivo baixado com sucesso!")
+        else:
+            st.error("Erro ao baixar arquivo. Verifique a chave da API.")
     else:
-        st.error("Erro ao baixar arquivo. Verifique a chave da API.")
-else:
-    if not os.path.exists(download_path):
-        st.warning("Faça o download do dado mais recente usando sua chave da API Copernicus.")
+        if not os.path.exists(download_path):
+            st.warning("Faça o download do dado mais recente usando sua chave da API Copernicus.")
 
-if os.path.exists(download_path):
-    with st.expander("Seleção de previsão"):
-        st.markdown("Selecione o horário da previsão (cada passo são 12h à frente da data base):")
-        steps = list(range(1, 12))  # 11 passos = 0h a 120h
-        step_idx = st.slider("Passo (leadtime)", min_value=1, max_value=11, value=1)
-        st.caption(f"Passo {step_idx}: previsão para {step_idx*12}h à frente de {hoje_str}")
+    if os.path.exists(download_path):
+        with st.expander("Seleção de previsão"):
+            st.markdown("Selecione o horário da previsão (cada passo são 12h à frente da data base):")
+            steps = list(range(1, 12))
+            step_idx = st.slider("Passo (leadtime)", min_value=1, max_value=11, value=1)
+            st.caption(f"Passo {step_idx}: previsão para {step_idx*12}h à frente de {hoje_str}")
 
-    map_fig, df_categorias = gerar_mapa(step_idx, download_path, gdf_municipios, geojson_data_crs)
+with col1:
+    if os.path.exists(download_path):
+        map_fig, df_categorias = gerar_mapa(step_idx, download_path, gdf_municipios, geojson_data_crs)
+        st.plotly_chart(map_fig, use_container_width=True)
 
-    st.plotly_chart(map_fig, use_container_width=True)
-
-    with st.expander("Tabela de municípios e categorias"):
-        st.dataframe(df_categorias[['Categoria', 'value']], use_container_width=True)
-else:
-    st.info("Nenhum dado GRIB disponível. Faça o download usando sua chave Copernicus acima.")
+        with st.expander("Tabela de municípios e categorias"):
+            st.dataframe(df_categorias[['Categoria', 'value']], use_container_width=True)
+    else:
+        st.info("Nenhum dado GRIB disponível. Faça o download usando sua chave Copernicus acima.")
