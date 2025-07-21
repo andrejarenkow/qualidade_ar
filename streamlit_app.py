@@ -209,7 +209,7 @@ with col1:
             st.caption(f"Passo {step_idx}: previsão para {step_idx*12}h à frente de {hoje_str}")
 
 
- if os.path.exists(download_path):
+if os.path.exists(download_path):
     map_fig, df_categorias = gerar_mapa(step_idx, download_path, gdf_municipios, geojson_data_crs)
 
     with col1:
