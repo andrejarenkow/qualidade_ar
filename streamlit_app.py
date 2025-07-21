@@ -103,10 +103,9 @@ def gerar_mapa(item, file_path_grib, gdf_municipios, geojson_data_crs):
     # Criar curvas de contorno e extrair polígonos
     import matplotlib.pyplot as plt
     contours = plt.contour(grid_lon, grid_lat, grid_value, levels=200)
-    print(contours)
     polygons = []
     values_pol = []
-    for i, collection in enumerate(contours.collections):
+    for i, collection in enumerate(contours.allsegs):
         for path in collection.get_paths():
             if len(path.vertices) >= 4:
                 polygons.append(Polygon(path.vertices))
