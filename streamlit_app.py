@@ -186,7 +186,7 @@ geojson_data_crs = carregar_geojson_crs()
 # Data "hoje" padrão
 hoje = st.date_input("Selecione a data inicial") #datetime.date.today()
 hoje_str = hoje.strftime('%Y-%m-%d')
-baixar = st.button("Baixar e processar dado mais recente")
+baixar = st.button("Baixar e processar dados")
 
 if baixar and cdsapi_key:
     st.info("Baixando dados do CAMS. Isso pode levar alguns minutos...")
