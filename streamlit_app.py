@@ -238,7 +238,7 @@ if os.path.exists(download_path):
                   <tr>
                     <th>Qualidade</th>
                     <th style="background-color:green; color:white">BOA</th>
-                    <th style="background-color:yellow">MODERADA</th>
+                    <th style="background-color:#FDD900">MODERADA</th>
                     <th style="background-color:orange">RUIM</th>
                     <th style="background-color:red; color:white">MUITO RUIM</th>
                     <th style="background-color:purple; color:white">PÉSSIMA</th>
@@ -246,7 +246,7 @@ if os.path.exists(download_path):
                   <tr>
                     <td>MP 2.5 (µg/m³) 24h</td>
                     <td style="background-color:green; color:white">0-15</td>
-                    <td style="background-color:yellow">16-50</td>
+                    <td style="background-color:#FDD900">16-50</td>
                     <td style="background-color:orange">51-75</td>
                     <td style="background-color:red; color:white">76-125</td>
                     <td style="background-color:purple; color:white">&gt;125</td>
