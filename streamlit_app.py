@@ -102,14 +102,22 @@ def gerar_mapa(item, file_path_grib, gdf_municipios, geojson_data_crs):
 
     # Criar curvas de contorno e extrair polígonos
     import matplotlib.pyplot as plt
-    contours = plt.contour(grid_lon, grid_lat, grid_value, levels=200)
-    polygons = []
-    values_pol = []
-    for i, collection in enumerate(contours.allsegs):
-        for path in collection.get_paths():
-            if len(path.vertices) >= 4:
-                polygons.append(Polygon(path.vertices))
-                values_pol.append(contours.levels[i])
+    # Check if 'collections' attribute exists before accessing it
+    if hasattr(contours, 'collections'):
+        for i, collection in enumerate(contours.collections):
+            for path in collection.get_paths():
+                # Verifica se o número de vértices é suficiente para formar um polígono
+                if len(path.vertices) >= 4:
+                    polygons.append(Polygon(path.vertices))
+                    values.append(contours.levels[i])  # Adiciona o valor correspondente ao nível
+    elif hasattr(contours, 'allsegs'):
+         for i, seg in enumerate(contours.allsegs):
+            for path in seg:
+                # Verifica se o número de vértices é suficiente para formar um polígono
+                if len(path) >= 4:
+                    polygons.append(Polygon(path))
+                    values.append(contours.levels[i])  # Adiciona o valor correspondente ao nível
+                
     gdf_contours = gpd.GeoDataFrame({'value': values_pol, 'geometry': polygons})
     gdf_contours = gdf_contours.set_crs(gdf_municipios.crs)
 
