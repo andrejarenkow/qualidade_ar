@@ -24,7 +24,7 @@ Este painel faz download automático das previsões do CAMS para MP2.5, gera map
 
 # Dados do usuário
 #with st.expander("Configuração da API Copernicus (CDSAPI)"):
-st.markdown('Você precisa de uma chave Copernicus válida. [Veja como obter](https://cds.climate.copernicus.eu/api-how-to)')
+#st.markdown('Você precisa de uma chave Copernicus válida. [Veja como obter](https://cds.climate.copernicus.eu/api-how-to)')
 cdsapi_key = 'be81bb34-c773-4711-8896-c15bccc82a33'#st.text_input("Chave da API Copernicus (formato: <uid>:<api_key>)", type='password')
     
 
