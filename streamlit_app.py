@@ -91,9 +91,6 @@ def gerar_mapa(item, file_path_grib, gdf_municipios, geojson_data_crs):
     }
     df = pd.DataFrame(data)
 
-    # print o dataframe
-    df
-
     # Interpolação
     grid_lat = np.linspace(df['lat'].min(), df['lat'].max(), 100)
     grid_lon = np.linspace(df['lon'].min(), df['lon'].max(), 100)
