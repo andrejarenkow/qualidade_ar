@@ -209,6 +209,17 @@ with col1:
             step_idx = st.slider("Passo (leadtime)", min_value=1, max_value=11, value=1)
             st.caption(f"Passo {step_idx}: previsão para {step_idx*12}h à frente de {hoje_str}")
 
+            # Obtenha a contagem por categoria
+            contagem_categorias = df_categorias['Categoria'].value_counts().reset_index()
+            contagem_categorias.columns = ['Categoria', 'Quantidade']
+        
+            st.subheader("Municípios por categoria")
+            # Se preferir st.metric para cada categoria:
+            for idx, row in contagem_categorias.iterrows():
+                st.metric(label=row['Categoria'], value=row['Quantidade'])
+
+)
+
 with col2:
     if os.path.exists(download_path):
         map_fig, df_categorias = gerar_mapa(step_idx, download_path, gdf_municipios, geojson_data_crs)
