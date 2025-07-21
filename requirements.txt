@@ -1,0 +1,14 @@
+streamlit
+cdsapi
+cfgrib
+imageio
+pygrib
+geopandas
+numpy
+matplotlib
+plotly
+shapely
+scipy
+pandas
+requests
+tqdm
