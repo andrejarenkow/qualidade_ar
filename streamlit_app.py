@@ -12,10 +12,26 @@ from shapely.geometry import Polygon
 from scipy.interpolate import griddata
 import streamlit as st
 
-# Configurar página do Streamlit
-st.set_page_config(page_title="Qualidade do Ar RS", layout="wide")
 
-st.title("Qualidade do Ar - RS (MP2.5)")
+# Configurações da página
+st.set_page_config(
+    page_title="Monitoramento Qualidade do Ar - RS",
+    page_icon="📡",
+    layout="wide",
+    #initial_sidebar_state='expanded'
+)
+# Cabeçalho
+col1, col2, col3 = st.columns([1,4,1])
+col3.image('https://github.com/andrejarenkow/csv/blob/master/logo_cevs%20(2).png?raw=true', width=130)
+col2.title('Qualidade do Ar - RS (MP2.5)')
+col1.image('https://github.com/andrejarenkow/csv/blob/master/logo_estado%20(3)%20(1).png?raw=true', width=230)
+#Linha divisória do cabeçalho e dados
+st.markdown(
+    """
+    <hr style="border: none; height: 30px; background-color: #44546A;" />
+    """,
+    unsafe_allow_html=True
+)
 
 # Instruções iniciais
 st.markdown("""
