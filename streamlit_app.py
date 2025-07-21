@@ -126,7 +126,7 @@ def gerar_mapa(item, file_path_grib, gdf_municipios, geojson_data_crs):
                     polygons.append(Polygon(path))
                     values.append(contours.levels[i])  # Adiciona o valor correspondente ao nível
                 
-    gdf_contours = gpd.GeoDataFrame({'value': values_pol, 'geometry': polygons})
+    gdf_contours = gpd.GeoDataFrame({'value': values, 'geometry': polygons})
     gdf_contours = gdf_contours.set_crs(gdf_municipios.crs)
 
     # Junção espacial
