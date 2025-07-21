@@ -237,19 +237,19 @@ if os.path.exists(download_path):
                 <table>
                   <tr>
                     <th>Qualidade</th>
-                    <th style="background-color:green; color:white">BOA</th>
+                    <th style="background-color:#71E17B; color:white">BOA</th>
                     <th style="background-color:#FDD900">MODERADA</th>
-                    <th style="background-color:orange">RUIM</th>
-                    <th style="background-color:red; color:white">MUITO RUIM</th>
-                    <th style="background-color:purple; color:white">PÉSSIMA</th>
+                    <th style="background-color:#EE7D15">RUIM</th>
+                    <th style="background-color:#C90101; color:white">MUITO RUIM</th>
+                    <th style="background-color:#6C1775; color:white">PÉSSIMA</th>
                   </tr>
                   <tr>
                     <td>MP 2.5 (µg/m³) 24h</td>
-                    <td style="background-color:green; color:white">0-15</td>
+                    <td style="background-color:#71E17B; color:white">0-15</td>
                     <td style="background-color:#FDD900">16-50</td>
-                    <td style="background-color:orange">51-75</td>
-                    <td style="background-color:red; color:white">76-125</td>
-                    <td style="background-color:purple; color:white">&gt;125</td>
+                    <td style="background-color:#EE7D15">51-75</td>
+                    <td style="background-color:#C90101; color:white">76-125</td>
+                    <td style="background-color:#6C1775; color:white">&gt;125</td>
                   </tr>
                 </table>
                 """, unsafe_allow_html=True)
