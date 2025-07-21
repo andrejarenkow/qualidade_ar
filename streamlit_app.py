@@ -102,6 +102,14 @@ def gerar_mapa(item, file_path_grib, gdf_municipios, geojson_data_crs):
 
     # Criar curvas de contorno e extrair polígonos
     import matplotlib.pyplot as plt
+
+    # Criar curvas de contorno
+    contours = plt.contour(grid_lon, grid_lat, grid_value, levels=200)
+
+    # Extrair polígonos das curvas de contorno
+    polygons = []
+    values = []
+    
     # Check if 'collections' attribute exists before accessing it
     if hasattr(contours, 'collections'):
         for i, collection in enumerate(contours.collections):
