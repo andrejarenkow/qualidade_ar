@@ -216,8 +216,10 @@ if os.path.exists(download_path):
         contagem_categorias = df_categorias['Categoria'].value_counts().reset_index()
         contagem_categorias.columns = ['Categoria', 'Quantidade']
         st.subheader("Municípios por categoria")
+        cols = st.columns(len(contagem_categorias))
         for idx, row in contagem_categorias.iterrows():
-            st.metric(label=row['Categoria'], value=row['Quantidade'])
+            with cols[idx]:
+                st.metric(label=row['Categoria'], value=row['Quantidade'])
 
     with col2:
         st.plotly_chart(map_fig, use_container_width=True)
