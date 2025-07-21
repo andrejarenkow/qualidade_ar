@@ -245,7 +245,7 @@ if os.path.exists(download_path):
                   </tr>
                   <tr>
                     <td>MP 2.5 (µg/m³) 24h</td>
-                    <td style="background-color:#71E17B; color:white">0-15</td>
+                    <td style="background-color:#71E17B; color:black">0-15</td>
                     <td style="background-color:#FDD900">16-50</td>
                     <td style="background-color:#EE7D15">51-75</td>
                     <td style="background-color:#C90101; color:white">76-125</td>
