@@ -202,7 +202,7 @@ gdf_municipios = carregar_municipios()
 geojson_data_crs = carregar_geojson_crs()
 
 # Após carregar os dados e definir variáveis
-col1, col2 = st.columns([1, 2])
+col1, col2 = st.columns([2, 3])
 
 with col1:
     hoje = st.date_input("Selecione a data inicial")
