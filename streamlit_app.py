@@ -219,7 +219,7 @@ with col1:
 
     step_idx = 1
     if os.path.exists(download_path):
-        with st.expander("Seleção de previsão"):
+        #with st.expander("Seleção de previsão"):
             st.markdown("Selecione o horário da previsão (cada passo são 12h à frente da data base):")
             step_idx = st.slider("Passo (leadtime)", min_value=1, max_value=11, value=1)
             st.caption(f"Passo {step_idx}: previsão para {step_idx*12}h à frente de {hoje_str}")
