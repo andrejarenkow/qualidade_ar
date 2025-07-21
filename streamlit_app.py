@@ -218,7 +218,7 @@ with col1:
             for idx, row in contagem_categorias.iterrows():
                 st.metric(label=row['Categoria'], value=row['Quantidade'])
 
-)
+
 
 with col2:
     if os.path.exists(download_path):
