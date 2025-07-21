@@ -184,7 +184,7 @@ gdf_municipios = carregar_municipios()
 geojson_data_crs = carregar_geojson_crs()
 
 # Data "hoje" padrão
-hoje = datetime.date.today()
+hoje = st.date_input("Selecione a data inicial") #datetime.date.today()
 hoje_str = hoje.strftime('%Y-%m-%d')
 
 if baixar and cdsapi_key:
