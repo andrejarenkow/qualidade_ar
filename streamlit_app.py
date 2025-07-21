@@ -35,7 +35,7 @@ st.markdown(
 
 # Instruções iniciais
 st.markdown("""
-Este painel faz download automático das previsões do CAMS para MP2.5, gera mapas interpolados e categoriza municípios do RS.
+Este painel faz download automático das previsões do [Copernicus Atmosphere Monitoring Service](https://atmosphere.copernicus.eu/) para Material Particulado 2.5, gera mapas interpolados e categoriza municípios do RS de acordo com a [Resolução CONAMA nº 506, de 12 de janeiro de 2024](https://conama.mma.gov.br/?option=com_sisconama&task=arquivo.download&id=827)
 """)
 
 # Dados do usuário
