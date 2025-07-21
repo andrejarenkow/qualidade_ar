@@ -39,9 +39,24 @@ Este painel faz download automático das previsões do [Copernicus Atmosphere Mo
 """)
 
 st.markdown("""
-| Qualidade     | BOA                              | MODERADA                          | RUIM                              | MUITO RUIM                         | PÉSSIMA                            |
-|---------------|----------------------------------|-----------------------------------|-----------------------------------|------------------------------------|------------------------------------|
-| MP 2.5 (µg/m³) 24h | <span style="color:green">0-15</span> | <span style="color:yellow">16-50</span> | <span style="color:orange">51-75</span> | <span style="color:red">76-125</span> | <span style="color:purple">>125</span> |
+<table>
+  <tr>
+    <th>Qualidade</th>
+    <th style="background-color:green; color:white">BOA</th>
+    <th style="background-color:yellow">MODERADA</th>
+    <th style="background-color:orange">RUIM</th>
+    <th style="background-color:red; color:white">MUITO RUIM</th>
+    <th style="background-color:purple; color:white">PÉSSIMA</th>
+  </tr>
+  <tr>
+    <td>MP 2.5 (µg/m³) 24h</td>
+    <td style="background-color:green; color:white">0-15</td>
+    <td style="background-color:yellow">16-50</td>
+    <td style="background-color:orange">51-75</td>
+    <td style="background-color:red; color:white">76-125</td>
+    <td style="background-color:purple; color:white">&gt;125</td>
+  </tr>
+</table>
 """, unsafe_allow_html=True)
 
 # Dados do usuário
